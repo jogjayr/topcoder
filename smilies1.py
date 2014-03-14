@@ -46,11 +46,19 @@ class EmoticonsDiv1:
 		while (power_res < smilies):
 			power_res = pow(2, power_ct)
 			power_ct = power_ct + 1
+		
+		if (power_res == smilies):
+			while(self.text_field_count != smilies):
+				self.copy_to_clipboard()
+				self.paste_to_text_field()
+			return self.elapsed_time
 
 		# copy-paste till text-field length is one power of two less than that
 		while (self.text_field_count != power_res / 2):
 			self.copy_to_clipboard()
 			self.paste_to_text_field()
+		
+		
 
 		# copy text-field into clipboard
 		self.copy_to_clipboard()
