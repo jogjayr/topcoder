@@ -21,6 +21,46 @@
 #http://community.topcoder.com/stat?c=problem_statement&pm=10543
 
 class EmoticonsDiv1:
+	def __init__(self):
+		self.clipboard_count = 0
+		self.text_field_count = 1 
+		self.elapsed_time = 0
+
+	def copy_to_clipboard(self):
+		self.elapsed_time = self.elapsed_time + 1
+		self.clipboard_count = self.text_field_count
+
+	def paste_to_text_field(self):
+		self.elapsed_time = self.elapsed_time + 1
+		self.text_field_count = self.clipboard_count + self.text_field_count
+
+	def delete_emoticon(self):
+		self.elapsed_time = self.elapsed_time + 1
+		self.text_field_count = self.text_field_count - 1
+
 	def printSmilies(self, smilies):
-		smilies = smilies + 1
-		return smilies 
+
+		# find what power of 2 smilies is closest to
+		power_ct = 0
+		power_res = 0
+		while (power_res < smilies):
+			power_res = pow(2, power_ct)
+			power_ct = power_ct + 1
+
+		# copy-paste till text-field length is one power of two less than that
+		while (self.text_field_count != power_res / 2):
+			self.copy_to_clipboard()
+			self.paste_to_text_field()
+
+		# copy text-field into clipboard
+		self.copy_to_clipboard()
+
+		# delete from text-field until text-field + clipboard = smilies
+		while (self.text_field_count + self.clipboard_count != smilies):
+			self.delete_emoticon()
+
+		# paste clipboard into text-field
+		self.paste_to_text_field()
+
+		# have a party
+		return self.elapsed_time 

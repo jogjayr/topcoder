@@ -1,14 +1,28 @@
 import unittest
 from smilies1 import EmoticonsDiv1
 
-def isOdd(x):
-	return x % 2 == 1
 
 class EmoticonsDiv1Tests(unittest.TestCase):
 
 	def testOne(self):
 		ed = EmoticonsDiv1()
-		self.failUnless(ed.printSmilies(5) == 6)
+		self.failUnless(ed.printSmilies(2) == 2)
+	
+	def testTwo(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.printSmilies(4) == 4)
+	
+	def testThree(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.printSmilies(6) == 5)
+
+	def testFour(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.printSmilies(18) == 8)
+
+	def testFive(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.printSmilies(11) == 8)
 
 def main():
 	unittest.main()
