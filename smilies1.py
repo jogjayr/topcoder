@@ -58,6 +58,10 @@ class EmoticonsDiv1:
 			self.copy_to_clipboard()
 			self.paste_to_text_field()
 		
+		if ((smilies - self.text_field_count) % self.clipboard_count == 0):
+			while(self.text_field_count != smilies):
+				self.paste_to_text_field()
+			return self.elapsed_time
 		
 
 		# copy text-field into clipboard
