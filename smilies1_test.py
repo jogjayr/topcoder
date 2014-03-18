@@ -24,11 +24,14 @@ class EmoticonsDiv1Tests(unittest.TestCase):
 		self.failUnless(ed.printSmilies(11) == 8)
 
 	def testPrimeOne(self):
-		self.failUnless(self.ed.is_prime(3))
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.is_prime(3))
 
 	def testPrimeTwo(self):
-		self.failIf((self.ed.is_prime(2))
-
+		ed = EmoticonsDiv1()
+		self.failIf(ed.is_prime(2))
+	
+	
 def main():
 	unittest.main()
 
