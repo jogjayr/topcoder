@@ -1,7 +1,6 @@
 import unittest
 from smilies1 import EmoticonsDiv1
 
-
 class EmoticonsDiv1Tests(unittest.TestCase):
 
 	def testOne(self):
@@ -23,6 +22,12 @@ class EmoticonsDiv1Tests(unittest.TestCase):
 	def testFive(self):
 		ed = EmoticonsDiv1()
 		self.failUnless(ed.printSmilies(11) == 8)
+
+	def testPrimeOne(self):
+		self.failUnless(self.ed.is_prime(3))
+
+	def testPrimeTwo(self):
+		self.failIf((self.ed.is_prime(2))
 
 def main():
 	unittest.main()

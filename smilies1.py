@@ -38,41 +38,18 @@ class EmoticonsDiv1:
 		self.elapsed_time = self.elapsed_time + 1
 		self.text_field_count = self.text_field_count - 1
 
+	def is_prime(self, num):
+		count = 3
+		if (num % 2 == 0):
+			return false
+		else:
+			while (count < num/2):
+				if (num % count == 0):
+					return false
+			return true
+
+
 	def printSmilies(self, smilies):
-
-		# find what power of 2 smilies is closest to
-		power_ct = 0
-		power_res = 0
-		while (power_res < smilies):
-			power_res = pow(2, power_ct)
-			power_ct = power_ct + 1
 		
-		if (power_res == smilies):
-			while(self.text_field_count != smilies):
-				self.copy_to_clipboard()
-				self.paste_to_text_field()
-			return self.elapsed_time
-
-		# copy-paste till text-field length is one power of two less than that
-		while (self.text_field_count != power_res / 2):
-			self.copy_to_clipboard()
-			self.paste_to_text_field()
 		
-		if ((smilies - self.text_field_count) % self.clipboard_count == 0):
-			while(self.text_field_count != smilies):
-				self.paste_to_text_field()
-			return self.elapsed_time
-		
-
-		# copy text-field into clipboard
-		self.copy_to_clipboard()
-
-		# delete from text-field until text-field + clipboard = smilies
-		while (self.text_field_count + self.clipboard_count != smilies):
-			self.delete_emoticon()
-
-		# paste clipboard into text-field
-		self.paste_to_text_field()
-
-		# have a party
-		return self.elapsed_time 
+		return self.elapsed_time
