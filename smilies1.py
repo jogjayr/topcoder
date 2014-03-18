@@ -40,13 +40,15 @@ class EmoticonsDiv1:
 
 	def is_prime(self, num):
 		count = 3
+		if (num == 2 or num == 3):
+			return True 
 		if (num % 2 == 0):
-			return false
+			return False
 		else:
 			while (count < num/2):
 				if (num % count == 0):
-					return false
-			return true
+					return False
+			return True
 
 
 	def printSmilies(self, smilies):

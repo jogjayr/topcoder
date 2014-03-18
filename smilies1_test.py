@@ -29,7 +29,13 @@ class EmoticonsDiv1Tests(unittest.TestCase):
 
 	def testPrimeTwo(self):
 		ed = EmoticonsDiv1()
-		self.failIf(ed.is_prime(2))
+		self.failUnless(ed.is_prime(2))
+	
+	def testPrimeFive(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.is_prime(5))
+		self.failIf(ed.is_prime(6))
+		self.failIf(ed.is_prime(60))
 	
 	
 def main():
