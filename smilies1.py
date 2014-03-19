@@ -90,6 +90,27 @@ class EmoticonsDiv1:
 
 	#prints num_smilies to the field, where num_smilies is odd
 	def printOddNumberOfSmilies(self, num_smilies):
+		#the way to get an odd number of smilies in the text field
+		#is to find the GCD of num_smilies, get that many smilies into
+		#the field, then copy-paste the field till we have num_smiles
+		gcd = self.find_gcd(num_smilies)
+		multiplier = num_smilies / gcd
+	
+		#we want "gcd" smilies in the text field, then we want to copy-paste
+		#"multiplier" times to get num_smilies into the 
+		if (gcd % 2 == 0):
+			self.printEvenNumberOfSmilies(gcd)
+		elif (self.is_prime(gcd)):
+			self.printPrimeNumberOfSmilies(gcd)
+		else:
+			self.printOddNumberOfSmilies(gcd)
+
+		#when that's done, we just have to copy the text field and paste
+		#multiplier times
+		self.copy_to_clipboard()
+		while(multiplier != 0):
+			self.paste_to_text_field()
+			multiplier -= 1
 
 		return
 
@@ -112,7 +133,11 @@ class EmoticonsDiv1:
 		#number printer handle it
 		else:
 			self.printOddNumberOfSmilies(half_num_smilies)
-
+	
+		#after going through that, we should have num_smilies/2 number of smilies
+		#in the text field, so now it's just a simple copy-paste
+		self.copy_to_clipboard()
+		self.paste_to_text_field()
 		return
 
 
