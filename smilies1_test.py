@@ -1,15 +1,49 @@
-import unittest
+import unittest, pdb
 from smilies1 import EmoticonsDiv1
-
-def isOdd(x):
-	return x % 2 == 1
 
 class EmoticonsDiv1Tests(unittest.TestCase):
 
 	def testOne(self):
 		ed = EmoticonsDiv1()
-		self.failUnless(ed.printSmilies(5) == 6)
+		self.failUnless(ed.printSmilies(2) == 2)
+	
+	def testTwo(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.printSmilies(4) == 4)
+	
+	def testThree(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.printSmilies(6) == 5)
 
+	def testFour(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.printSmilies(18) == 8)
+
+	def testFive(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.printSmilies(11) == 8)
+
+	def testPrimeOne(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.is_prime(3))
+
+	def testPrimeTwo(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.is_prime(2))
+	
+	def testPrimeFive(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.is_prime(5))
+		self.failIf(ed.is_prime(6))
+		self.failIf(ed.is_prime(60))
+	
+	def testGcdOne(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.find_gcd(21) == 7)
+		self.failUnless(ed.find_gcd(18) == 9)
+		self.failUnless(ed.find_gcd(10) == 5)
+	
+	
 def main():
 	unittest.main()
 
