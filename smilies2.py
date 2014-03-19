@@ -9,6 +9,7 @@
 
 
 #	Return the smallest number of seconds in which you can turn the one initial emoticon into smiles emoticons.
+# http://community.topcoder.com/stat?c=problem_statement&pm=13041
 
 from smilies1 import EmoticonsDiv1
 
