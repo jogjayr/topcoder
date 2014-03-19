@@ -50,8 +50,79 @@ class EmoticonsDiv1:
 					return False
 			return True
 
+	#prints num_smilies to the field, where num_smilies is prime
+	def printPrimeNumberOfSmilies(self, num_smilies):
+
+		#the way to get to num_smilies is to get to num_smilies+1,
+		#then delete a character. to get to num_smilies+1,
+		#we want to get to (num_smilies+1)/2 then copy-paste
+		#since num_smilies is prime, num_smilies+1 is even
+
+		plus_one_half = (num_smilies + 1)/2
+		
+		#plus_one_half is even
+		if (plus_one_half % 2 == 0):
+			self.printEvenNumberOfSmilies()
+
+		#if plus_one_half is itself a prime number, then we
+		#have to recurse on this number (is that a word)
+		elif(self.is_prime(plus_one_half)):
+			self.printPrimeNumberOfSmilies(plus_one_half)
+
+		#plus_one_half is not prime, but is odd
+		else:
+			self.printOddNumberOfSmilies()
+
+		#When we have exactly (num_smilies+1)/2 emoticons in the field
+		#copy-paste and delete
+		self.copy_to_clipboard()
+		self.paste_to_text_field()
+		self.delete_emoticon()
+
+	def find_gcd(self, num):
+		half_num = num / 2
+	
+		while (half_num > 1):
+			if (num % half_num == 0):
+				return half_num
+			half_num -= 1
+
+
+	#prints num_smilies to the field, where num_smilies is odd
+	def printOddNumberOfSmilies(self, num_smilies):
+
+		return
+
+	#prints num_smilies to the field, where num_smilies is even
+	def printEvenNumberOfSmilies(self, num_smilies):
+
+		#to print num_smilies, print num_smilies/2 then copy-paste
+		half_num_smilies = num_smilies / 2
+
+		#if half_num_smilies is even again, recurse
+		if (half_num_smilies % 2 == 0):
+			printEvenNumberOfSmilies(half_num_smilies)
+
+		#if half_num_smilies is prime, let the prime number printer
+		#handle it
+		elif (self.is_prime(half_num_smilies)):
+			self.printPrimeNumberOfSmilies(half_num_smilies)
+	
+		#otherwise, it's a non-prime odd number, so let the odd
+		#number printer handle it
+		else:
+			self.printOddNumberOfSmilies(half_num_smilies)
+
+		return
+
 
 	def printSmilies(self, smilies):
-		
+		#if the number is a power of two, just copy-paste till you get there
+
+		#if the number is prime, start up the prime getting algo straight-away
+
+		#if the number is even, divide by 2 till you hit an odd number
+
+		#if smilies is odd, find the largest prime factor, then start the prime-getting algo
 		
 		return self.elapsed_time

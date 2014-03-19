@@ -37,6 +37,12 @@ class EmoticonsDiv1Tests(unittest.TestCase):
 		self.failIf(ed.is_prime(6))
 		self.failIf(ed.is_prime(60))
 	
+	def testGcdOne(self):
+		ed = EmoticonsDiv1()
+		self.failUnless(ed.find_gcd(21) == 7)
+		self.failUnless(ed.find_gcd(18) == 9)
+		self.failUnless(ed.find_gcd(10) == 5)
+	
 	
 def main():
 	unittest.main()
