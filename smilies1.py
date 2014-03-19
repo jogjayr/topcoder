@@ -20,6 +20,8 @@
 
 #http://community.topcoder.com/stat?c=problem_statement&pm=10543
 
+import pdb
+
 class EmoticonsDiv1:
 	def __init__(self):
 		self.clipboard_count = 0
@@ -48,10 +50,21 @@ class EmoticonsDiv1:
 			while (count < num/2):
 				if (num % count == 0):
 					return False
+				count += 1
 			return True
 
 	#prints num_smilies to the field, where num_smilies is prime
 	def printPrimeNumberOfSmilies(self, num_smilies):
+
+		if (num_smilies == 2):
+			self.copy_to_clipboard()
+			self.paste_to_text_field()
+			return
+		elif (num_smilies == 3):
+			self.copy_to_clipboard()
+			self.paste_to_text_field()
+			self.paste_to_text_field()
+			return
 
 		#the way to get to num_smilies is to get to num_smilies+1,
 		#then delete a character. to get to num_smilies+1,
@@ -62,7 +75,7 @@ class EmoticonsDiv1:
 		
 		#plus_one_half is even
 		if (plus_one_half % 2 == 0):
-			self.printEvenNumberOfSmilies()
+			self.printEvenNumberOfSmilies(plus_one_half)
 
 		#if plus_one_half is itself a prime number, then we
 		#have to recurse on this number (is that a word)
@@ -71,7 +84,7 @@ class EmoticonsDiv1:
 
 		#plus_one_half is not prime, but is odd
 		else:
-			self.printOddNumberOfSmilies()
+			self.printOddNumberOfSmilies(plus_one_half)
 
 		#When we have exactly (num_smilies+1)/2 emoticons in the field
 		#copy-paste and delete
@@ -108,7 +121,7 @@ class EmoticonsDiv1:
 		#when that's done, we just have to copy the text field and paste
 		#multiplier times
 		self.copy_to_clipboard()
-		while(multiplier != 0):
+		while(multiplier != 1):
 			self.paste_to_text_field()
 			multiplier -= 1
 
@@ -116,13 +129,16 @@ class EmoticonsDiv1:
 
 	#prints num_smilies to the field, where num_smilies is even
 	def printEvenNumberOfSmilies(self, num_smilies):
-
+		if(num_smilies == 2):
+			self.copy_to_clipboard()
+			self.paste_to_text_field()
+			return
 		#to print num_smilies, print num_smilies/2 then copy-paste
 		half_num_smilies = num_smilies / 2
 
 		#if half_num_smilies is even again, recurse
 		if (half_num_smilies % 2 == 0):
-			printEvenNumberOfSmilies(half_num_smilies)
+			self.printEvenNumberOfSmilies(half_num_smilies)
 
 		#if half_num_smilies is prime, let the prime number printer
 		#handle it
@@ -142,12 +158,15 @@ class EmoticonsDiv1:
 
 
 	def printSmilies(self, smilies):
-		#if the number is a power of two, just copy-paste till you get there
+		#if the number is even, divide by 2 till you hit an odd number
+		if(smilies % 2 == 0):
+			self.printEvenNumberOfSmilies(smilies)
 
 		#if the number is prime, start up the prime getting algo straight-away
-
-		#if the number is even, divide by 2 till you hit an odd number
+		elif (self.is_prime(smilies)):
+			self.printPrimeNumberOfSmilies(smilies)
 
 		#if smilies is odd, find the largest prime factor, then start the prime-getting algo
-		
+		else:
+			self.printOddNumberOfSmilies(smilies)	
 		return self.elapsed_time

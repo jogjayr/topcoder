@@ -1,4 +1,4 @@
-import unittest
+import unittest, pdb
 from smilies1 import EmoticonsDiv1
 
 class EmoticonsDiv1Tests(unittest.TestCase):
