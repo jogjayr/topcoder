@@ -10,10 +10,18 @@
 
 #	Return the smallest number of seconds in which you can turn the one initial emoticon into smiles emoticons.
 # http://community.topcoder.com/stat?c=problem_statement&pm=13041
-
+import pdb
 from smilies1 import EmoticonsDiv1
 
 class EmoticonsDiv2(EmoticonsDiv1):
+	def __init__(self):
+		EmoticonsDiv1.__init__(self)
 
 	def printSmilies(self, smilies):
+		if(smilies % 2 == 0):
+			EmoticonsDiv1.printEvenNumberOfSmilies(self, smilies)
+		elif (EmoticonsDiv1.is_prime(self, smilies)):
+			EmoticonsDiv1.printPrimeNumberOfSmilies(self, smilies)
+		else:
+			EmoticonsDiv1.printOddNumberOfSmilies(self, smilies)
 		return self.elapsed_time

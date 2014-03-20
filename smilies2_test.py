@@ -1,22 +1,31 @@
-import unittest
+import unittest, pdb
 
 from smilies2 import EmoticonsDiv2
 
-class EmoticonsDiv2 (unittest.TestCase):
-	def testOne(self):
+class EmoticonsDiv2Test (unittest.TestCase):
+	def test_One(self):
 		ed = EmoticonsDiv2()
 		self.failUnless(ed.printSmilies(2) == 2)
-		ed.__init__()
+
+	def test_Three(self):
+		ed = EmoticonsDiv2()
 		self.failUnless(ed.printSmilies(6) == 5)
-		ed.__init__()
+
+	def test_Four(self):
+		ed = EmoticonsDiv2()
 		self.failUnless(ed.printSmilies(11) == 11)
-		ed.__init__()
+
+	def test_Five(self):
+		ed = EmoticonsDiv2()
 		self.failUnless(ed.printSmilies(16) == 8)
-		ed.__init__()
+
+	def test_Six(self):
+		ed = EmoticonsDiv2()
 		self.failUnless(ed.printSmilies(1000) == 21)
 
 def main():
-	    unittest.main()
+	print "got here"
+	unittest.main()
 
 if __name__ == '__main__':
 	main()
