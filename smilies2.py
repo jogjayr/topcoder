@@ -17,11 +17,16 @@ class EmoticonsDiv2(EmoticonsDiv1):
 	def __init__(self):
 		EmoticonsDiv1.__init__(self)
 
+	def printPrimeNumberOfSmilies(self, smilies):
+		if (smilies == 2 or smilies == 3):
+			EmoticonsDiv1.printPrimeNumberOfSmilies(self, smilies)
+		return
+
 	def printSmilies(self, smilies):
 		if(smilies % 2 == 0):
 			EmoticonsDiv1.printEvenNumberOfSmilies(self, smilies)
 		elif (EmoticonsDiv1.is_prime(self, smilies)):
-			EmoticonsDiv1.printPrimeNumberOfSmilies(self, smilies)
+			self.printPrimeNumberOfSmilies(smilies)
 		else:
 			EmoticonsDiv1.printOddNumberOfSmilies(self, smilies)
 		return self.elapsed_time
