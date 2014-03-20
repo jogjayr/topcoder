@@ -20,6 +20,11 @@ class EmoticonsDiv2(EmoticonsDiv1):
 	def printPrimeNumberOfSmilies(self, smilies):
 		if (smilies == 2 or smilies == 3):
 			EmoticonsDiv1.printPrimeNumberOfSmilies(self, smilies)
+		else:
+			self.copy_to_clipboard()
+			while (smilies != 1):
+				self.paste_to_text_field()
+				smilies -= 1
 		return
 
 	def printSmilies(self, smilies):
