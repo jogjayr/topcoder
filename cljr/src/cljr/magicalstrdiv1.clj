@@ -18,7 +18,10 @@
     (let [split-index (/ (count a-str) 2)]
       ;check that the first half of the string is all > and the second half is all <
       (and (apply = (concat (subs a-str 0 split-index) [(quote \>)])) (apply = (concat (subs a-str split-index) [(quote \<)]))))))
-      
+
+(defn count-char-ocurrence [given-str find-char]
+  "Find ocurrences of find-char in given-str"
+  (count (apply (fn [& args] (filter #(= find-char (str %)) args)) given-str)))  
 
 (defn get-longest [given-str]
   (if (magical? given-str)

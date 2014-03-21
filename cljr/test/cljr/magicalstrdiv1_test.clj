@@ -7,6 +7,10 @@
   (testing "><><"
     (is (not (magical? "><><")))))
 
+(deftest count-char-check
+  (testing "<<><>><"
+    (is (= 4 (count-char-ocurrence "<<><>><" "<")))
+    (is (= 4 (count-char-ocurrence "<<><>><" "<")))))
 
 (deftest problem-tests 
   (testing "<><><<>"
