@@ -21,4 +21,6 @@
       
 
 (defn get-longest [given-str]
-	5)
+  (if (magical? given-str)
+    (count given-str)
+    5))
