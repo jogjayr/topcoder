@@ -6,4 +6,5 @@
   :dependencies [[org.clojure/clojure "1.5.1"]]
   :main ^:skip-aot cljr.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}}
+  :test-selectors {:magical2 :magical2})
